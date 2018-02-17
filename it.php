@@ -6,6 +6,28 @@ if (!function_exists('it_int')) {
 	}
 }
 
+if (!function_exists('it_views')) {
+	function it_views($view) {
+		return view('it::'.$view);
+	}
+}
+
+if (!function_exists('it_version')) {
+	function it_version() {
+		$version = '1.0';
+		app()->singleton('it_version', function () use ($version) {
+				return $version;
+			});
+		return $version;
+	}
+}
+
+if (!function_exists('it_trans')) {
+	function it_trans($trans) {
+		return Lang::get('it::'.$trans);
+	}
+}
+
 if (!function_exists('it_des')) {
 	function it_des($path) {
 		return url('it_des/'.$path);
